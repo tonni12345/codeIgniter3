@@ -31,6 +31,7 @@
                     <td><?php echo $mhs->nim ?></td>
                     <td><?php echo $mhs->tgl_lahir ?></td>
                     <td><?php echo $mhs->jurusan ?></td>
+                    <td><?php echo anchor('mahasiswa/detail/'.$mhs->id, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>')?></td>
                     <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mahasiswa/hapus/'.$mhs->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
                     <td><?php echo anchor('mahasiswa/edit/'.$mhs->id, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>');?></td>
                 </tr>
@@ -60,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>
-                            <input type="text" name="tgl_lahir" class="form-control">
+                            <input type="date" name="tgl_lahir" class="form-control">
                         </div>
                         <div class="jurusan">
                             <label>Jurusan</label>
@@ -69,6 +70,18 @@
                                 <option>Sistem Informasi</option>
                                 <option>Manajemen Informatika</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <input type="textarea" name="alamat" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>email</label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor Telepon</label>
+                            <input type="text" name="no_telp" class="form-control">
                         </div>
                         <div>
                             <button type="reset" class="btn btn-danger" >Reset</button>
