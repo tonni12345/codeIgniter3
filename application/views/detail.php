@@ -29,6 +29,12 @@
                 <th>No Telepon</th>
                 <td><?php echo $detail->no_telp;?></td>
             </tr>
+            <tr>
+                <td>
+                    <img src="<?php echo base_url(); ?>assets/foto/<?php $detail->foto;?>" alt="tidak ada foto" width="90" height="110">
+                </td>
+                <td></td>
+            </tr>
         </table>
         <a href="<?php echo base_url('mahasiswa/index')?>" class="btn btn-primary">Kembali</a>
     </section>

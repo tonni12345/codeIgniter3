@@ -18,15 +18,31 @@ class Mahasiswa extends CI_Controller{
         $alamat = $this->input->post('alamat');
         $email = $this->input->post('email');
         $no_telp = $this->input->post('no_telp');
+        $foto = $_FILES['foto'];
+
+        if($foto=''){
+
+        } else {
+            $config['upload_path'] = './assets/foto';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('foto')){
+                echo 'Upload Gagal'; die();   
+            }else{
+                $foto=$this->upload->data('file_name');
+            }
+        }
 
         $data = array(
-            'nama' => $nama,
-            'nim' => $nim,
+            'nama'      => $nama,
+            'nim'       => $nim,
             'tgl_lahir' => $tgl_lahir,
-            'jurusan' => $jurusan,
-            'alamat' => $alamat,
-            'email' => $email,
-            'no_telp' => $no_telp
+            'jurusan'   => $jurusan,
+            'alamat'    => $alamat,
+            'email'     => $email,
+            'no_telp'   => $no_telp,
+            'foto'      => $foto
         );
 
         $this->m_mahasiswa->input_data($data, 'tb_mahasiswa');
@@ -50,23 +66,24 @@ class Mahasiswa extends CI_Controller{
     }
 
     public function update(){
-        $id = $this->input->post('id');
-        $nama = $this->input->post('nama');
-        $nim = $this->input->post('nim');
-        $tgl_lahir = $this->input->post('tgl_lahir');
-        $jurusan = $this->input->post('jurusan');
-        $alamat = $this->input->post('alamat');
-        $email = $this->input->post('email');
-        $no_telp = $this->input->post('no_telp');
+        $id         = $this->input->post('id');
+        $nama       = $this->input->post('nama');
+        $nim        = $this->input->post('nim');
+        $tgl_lahir  = $this->input->post('tgl_lahir');
+        $jurusan    = $this->input->post('jurusan');
+        $alamat     = $this->input->post('alamat');
+        $email      = $this->input->post('email');
+        $no_telp    = $this->input->post('no_telp');
+        
 
         $data = array(
-            'nama' => $nama,
-            'nim' => $nim,
+            'nama'  => $nama,
+            'nim'   => $nim,
             'tgl_lahir' => $tgl_lahir,
-            'jurusan' => $jurusan,
-            'alamat' => $alamat,
-            'email' => $email,
-            'no_telp' => $no_telp
+            'jurusan'   => $jurusan,
+            'alamat'    => $alamat,
+            'email'     => $email,
+            'no_telp'   => $no_telp
         );
 
         $where = array(
