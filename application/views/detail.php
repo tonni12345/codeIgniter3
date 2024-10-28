@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td>
-                    <img src="<?php echo base_url(); ?>assets/foto/<?php $detail->foto;?>" alt="tidak ada foto" width="90" height="110">
+                    <img src="<?php echo base_url()?>assets/foto/<?php echo $detail->foto;?>" width="90" height="110">
                 </td>
                 <td></td>
             </tr>
